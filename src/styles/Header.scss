@@ -1,0 +1,31 @@
+@use "../styles/shared.scss"; 
+
+header {
+    position: absolute;
+    top:0;
+    left: 0;
+    height: 40vh;
+    width: inherit;
+    text-align: center;
+    background-color: white;
+    background-attachment: fixed;
+    background-position: bottom;
+    width: 100%;
+
+    @include shared.phones {
+        height: 50vh;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: inherit;
+        width: inherit;
+        z-index: 1;
+        background: rgb(54,62,236);
+        background: linear-gradient(117deg, rgba(54,62,236,0.6973606825542717) 15%, rgba(220,10,228,0.8731925387342436) 100%);
+    }
+}
+

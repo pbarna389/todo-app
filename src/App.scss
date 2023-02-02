@@ -1,0 +1,152 @@
+@use "./styles/shared.scss";
+
+* {
+  font-family: shared.$text-font;
+}
+
+path {
+  z-index: 0
+};
+
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  color: shared.$font-Color;
+  background-color: shared.$bg-Body-Color;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+button {
+  box-sizing: border-box;
+  border-radius: 25px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  color: shared.$font-Color;
+  background-color: shared.$bg-Body-Color;
+  border: 2px solid transparent;
+  transition: border-color 0.25s;
+  cursor: pointer;
+  font-weight: 500;
+
+  &:hover {
+    color: shared.$bg-Body-Color;
+    background-color: shared.$font-Color;
+  }
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  min-width: 100vw;
+
+  @include shared.phones {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+main {
+  position: relative;
+
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10vh;
+}
+
+.App {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100vw;
+  gap: 5rem;
+
+}
+
+.todo-wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2rem;
+  transition: all 0.5s ease-in;
+
+  @include shared.phones {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 5rem;
+  }
+
+  .todos, .done {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 0.5rem ;
+    border: 1px solid transparent;
+    min-width: 320px;
+    width: fit-content;
+    border-radius: 5px;
+    transition: all 0.5s ease-in;
+    cursor:default !important;
+
+    z-index: 100000;
+
+      @include shared.phones {
+        width: 100%;
+        align-items: center;
+      };
+    }
+
+    .listItem-wrapper:last-child {
+        .listItem {
+          border-bottom: none;
+          border-bottom-left-radius: 5px;
+          border-bottom-right-radius: 5px;
+          transition: all 0.3s ease-in;
+          border-bottom: 0px solid transparent;
+        }
+    }
+
+    h2 {
+      cursor: default;
+    }
+}
+
+h2 {
+  user-select: none;
+  color: shared.$font-Color;
+  margin-top: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.8rem;
+  font-weight: 500;
+  font-size: 2.5rem;
+  font-family: shared.$h2-font;
+}

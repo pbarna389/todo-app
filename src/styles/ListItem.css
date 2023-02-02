@@ -1,0 +1,135 @@
+.listItem-wrapper {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.05s linear;
+  z-index: 2;
+  border-radius: 0px;
+}
+@media (min-width: 320px) and (max-width: 640px) {
+  .listItem-wrapper {
+    width: 95%;
+  }
+}
+.listItem-wrapper button {
+  -webkit-animation: summon 1s;
+          animation: summon 1s;
+  z-index: 1000000000;
+}
+.listItem-wrapper button img {
+  z-index: 0;
+  width: 1rem;
+  height: 1rem;
+}
+
+.listItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #25273c;
+  padding: 10px;
+  transition: all 0.2s ease-in;
+  -webkit-animation: summon 1s;
+          animation: summon 1s;
+  cursor: -webkit-grab !important;
+  cursor: grab !important;
+  pointer-events: auto;
+  width: 20rem;
+  border-top: 1px solid #42445e;
+  border-bottom: 1px solid #42445e;
+  border-radius: 0px;
+  font-size: 1.1rem;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+}
+@media (min-width: 320px) and (max-width: 640px) {
+  .listItem {
+    width: 100%;
+  }
+}
+.listItem.high {
+  background: rgb(90, 24, 24);
+  background: linear-gradient(90deg, rgb(90, 24, 24) 0%, rgb(37, 39, 60) 40%);
+  border-left: 3px solid rgb(90, 24, 24);
+  border-right: 3px solid #25273c;
+}
+.listItem.medium {
+  background: rgb(88, 90, 24);
+  background: linear-gradient(90deg, rgb(88, 90, 24) 0%, rgb(37, 39, 60) 40%);
+  border-left: 3px solid rgb(88, 90, 24);
+  border-right: 3px solid #25273c;
+}
+.listItem.low {
+  background: rgb(6, 63, 15);
+  background: linear-gradient(90deg, rgb(6, 63, 15) 0%, rgb(37, 39, 60) 40%);
+  border-left: 3px solid rgb(6, 63, 15);
+  border-right: 3px solid #25273c;
+}
+.listItem.first-item {
+  border-top: none;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  transition: all 0.3s ease-in;
+  border-top: 0px solid transparent;
+  border-bottom-left-radius: 0px;
+}
+.listItem:hover {
+  color: #ebecff;
+  border-left: 3px solid #7e81b1;
+  border-right: 3px solid #7e81b1;
+}
+.listItem .options-wrapper {
+  display: flex;
+}
+.listItem .options-wrapper .edit, .listItem .options-wrapper .delete {
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  transition: all 0.25s linear;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  padding-left: 1rem;
+}
+.listItem .options-wrapper .edit:hover, .listItem .options-wrapper .delete:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+.listItem .options-wrapper .edit:hover::after, .listItem .options-wrapper .delete:hover::after {
+  display: block;
+  opacity: 1;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  z-index: 10;
+}
+
+.options-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+@-webkit-keyframes summon {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes summon {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}/*# sourceMappingURL=ListItem.css.map */

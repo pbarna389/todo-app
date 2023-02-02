@@ -1,0 +1,48 @@
+$bg-Body-Color:  #181824;
+$button-bg: #272d3e;
+
+$element-bg-color: #25273c;
+$form-bg-color: #25273ced;
+
+$border-color: #42445e;
+$border: 1px solid $border-color;
+
+$font-Color: #c8cae3;
+$font-hover-color: #ebecff ;
+
+$btn-Color: #4646464d;
+
+$h2Color: rgb(243, 229, 229);
+$loadbar-color: #a02424;
+
+$h2-font: 'Roboto', sans-serif;
+$text-font: 'Josefin Sans', sans-serif;
+
+$mobile-width: 320px;
+$tablet-width: 640px;
+$desktop-width: 1280px;
+$uhd-width: 1980px;
+
+@mixin phones {
+    @media (min-width: #{$mobile-width}) and (max-width: #{$tablet-width}) {
+        @content
+    }
+};
+
+@mixin tablets {
+    @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width}) {
+        @content
+    }
+};
+
+@mixin desktops {
+    @media (min-width: #{$desktop-width}) and (max-width: #{$uhd-width}) {
+        @content
+    }
+};
+
+@mixin uhd-desktops {
+    @media (min-width: #{$uhd-width}) {
+        @content
+    }
+}

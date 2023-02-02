@@ -1,0 +1,151 @@
+.section-form {
+  z-index: 2;
+}
+@media (min-width: 320px) and (max-width: 640px) {
+  .section-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+  }
+}
+.section-form h1 {
+  color: #c8cae3;
+  font-family: "Roboto", sans-serif;
+  font-size: 3.2em;
+  letter-spacing: 1rem;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+@media (min-width: 320px) and (max-width: 640px) {
+  .section-form h1 {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+}
+.section-form form {
+  display: flex;
+  align-items: center;
+  transition: all 0.25s linear;
+  border: 1px solid #42445e;
+  background-color: rgba(37, 39, 60, 0.9294117647);
+  width: 44.6rem;
+  border-radius: 5px;
+  padding: 0.5rem;
+  box-shadow: 5px 5px 5px 1px rgba(63, 63, 63, 0.4);
+  overflow: hidden;
+}
+.section-form form.addNewElement {
+  gap: 1rem;
+}
+@media (min-width: 320px) and (max-width: 640px) {
+  .section-form form.addNewElement {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.5rem 0;
+    box-shadow: none;
+  }
+}
+.section-form form input[type=text] {
+  text-align: center;
+  padding: 0.8rem;
+  border: none;
+  background-color: #42445e;
+  text-align: left;
+  width: 80%;
+  font-size: 1.1rem;
+  color: #c8cae3;
+  outline: none;
+  border-radius: inherit;
+}
+@media (min-width: 320px) and (max-width: 640px) {
+  .section-form form input[type=text] {
+    width: 85%;
+    text-align: center;
+  }
+}
+.section-form form input[type=text]::-moz-placeholder {
+  color: #c8cae3;
+  opacity: 0.5;
+}
+.section-form form input[type=text]:-ms-input-placeholder {
+  color: #c8cae3;
+  opacity: 0.5;
+}
+.section-form form input[type=text]::placeholder {
+  color: #c8cae3;
+  opacity: 0.5;
+}
+.section-form form button {
+  background-color: transparent;
+  color: #c8cae3;
+  font-weight: 800;
+  text-transform: uppercase;
+  transition: all 0.3s linear;
+  font-weight: 500;
+  border-radius: inherit;
+}
+.section-form form button:hover {
+  color: #181824;
+  background-color: #c8cae3;
+}
+.section-form form.edit-mode {
+  flex-direction: row;
+}
+.section-form form.edit-mode input[type=text] {
+  width: 80%;
+  border-radius: 5px;
+  margin-left: 0.5rem;
+  font-size: 1.1rem;
+}
+.section-form form.edit-mode .label-prio {
+  position: relative;
+}
+.section-form form.edit-mode .label-prio::after {
+  content: "<>";
+  rotate: 90deg;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 41%;
+  right: 3%;
+  z-index: 0;
+}
+.section-form form.edit-mode select {
+  position: relative;
+  width: 78%;
+  border-radius: 5px;
+  background-color: #42445e;
+  color: #c8cae3;
+  height: 2.5rem;
+  font-size: 1.1rem;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  outline: none;
+  margin-left: 0.5rem;
+}
+.section-form form.edit-mode .edit-settings {
+  display: inherit;
+  flex-direction: column;
+  width: 44.6rem;
+  gap: 1.2rem;
+}
+.section-form form.edit-mode button {
+  width: 30%;
+  height: 5rem;
+  font-weight: 500;
+}
+.section-form form p {
+  margin: 0;
+  padding: 0;
+  color: var(--h2Color);
+}
+.section-form form.change {
+  opacity: 0;
+}
+.section-form form option {
+  text-align: center;
+}/*# sourceMappingURL=Form.css.map */

@@ -1,0 +1,158 @@
+@use "../styles/shared.scss";
+
+.section-form {
+    z-index: 2;
+
+    @include shared.phones{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 95%;
+    }
+
+    h1 {
+        color: shared.$font-Color;
+        font-family: shared.$h2-font;
+        font-size: 3.2em;
+        letter-spacing: 1rem;;
+        line-height: 1.1;
+        text-transform: uppercase;
+
+        @include shared.phones {
+            font-size: 2.5rem;
+            text-align: center;
+        }
+    }
+
+    form {
+        display: flex;
+        align-items: center;
+        transition: all 0.25s linear;
+        border: shared.$border;
+        background-color: shared.$form-bg-color;
+        width: 44.6rem;
+        border-radius: 5px;
+        padding: 0.5rem;
+        box-shadow: 5px 5px 5px 1px rgba(63, 63, 63, 0.4);
+        overflow: hidden;
+
+        &.addNewElement {
+            gap: 1rem;
+
+            @include shared.phones {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                padding: 0.5rem 0;
+                box-shadow: none;
+            }
+        } 
+
+        input[type="text"] {
+            text-align: center;
+            padding: 0.8rem;
+            border: none;
+            background-color: shared.$border-color;
+            text-align: left;
+            width: 80%;
+            font-size: 1.1rem;
+            color: shared.$font-Color;
+            outline: none;
+            border-radius: inherit;
+
+            @include shared.phones {
+                width: 85%;
+                text-align: center;
+            }
+
+                &::placeholder {
+                    color: shared.$font-Color;
+                    opacity: 0.5;
+                }
+        }
+        
+        button {
+            background-color: transparent;
+            color: shared.$font-Color;
+            font-weight: 800;
+            text-transform: uppercase;
+            transition: all 0.3s linear;
+            font-weight: 500;
+            border-radius: inherit;
+
+                &:hover {
+                    color: shared.$bg-Body-Color;
+                    background-color: shared.$font-Color;
+                }
+        }
+        
+        &.edit-mode {
+            flex-direction: row;
+
+            input[type="text"] {
+                width: 80%;
+                border-radius: 5px;
+                margin-left: 0.5rem;
+                font-size: 1.1rem;
+            }
+
+            .label-prio {
+                position: relative;
+
+                &::after {
+                    content: "<>";
+                    rotate: 90deg;
+                    position: absolute;
+                    transform: translate(-50%, -50%);
+                    top: 41%;
+                    right: 3%;
+                    z-index: 0;
+                }
+            }
+
+            select {
+                position: relative;
+                width: 78%;
+                border-radius: 5px;
+                background-color: shared.$border-color;
+                color: shared.$font-Color;
+                height: 2.5rem;
+                font-size: 1.1rem;
+                appearance: none;
+                outline: none;
+                margin-left: 0.5rem;
+            }
+
+            .edit-settings {
+                display: inherit;
+                flex-direction: column;
+                width: 44.6rem;
+                gap: 1.2rem;
+            }
+    
+            button {
+                width: 30%;
+                height: 5rem;
+                font-weight: 500;
+            }
+    
+        }
+    
+        p {
+            margin: 0;
+            padding: 0;
+            color:var(--h2Color)
+        }
+    
+        &.change {
+            opacity: 0;
+        }
+    
+        option {
+            text-align: center;
+        }
+    
+    }
+}

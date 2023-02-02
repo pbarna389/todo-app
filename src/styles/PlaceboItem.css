@@ -1,0 +1,12 @@
+.placebo {
+  display: block;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.placebo:hover {
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  cursor: context-menu !important;
+}/*# sourceMappingURL=PlaceboItem.css.map */
