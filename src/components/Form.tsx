@@ -78,26 +78,24 @@ const Form: React.FC = () => {
       <h1>Todo list</h1>
       {
       !editMode ? 
-        <form className={removeForm ? "addElementMode change" : "addNewElement"} onSubmit={e => handleSubmit(e)}>
+        <form className={removeForm ? "change addElementMode" : "addNewElement"} onSubmit={e => handleSubmit(e)}>
             <input type="text" name="" id="" placeholder='Type in your to-do' value={todo} onChange={e => setTodo(e.target.value)} data-input="form"/>
             <button type='submit' data-btn="form">Add to the list</button>
         </form>
       :
         <form className={!removeForm ? "change edit-mode" : "edit-mode"} onSubmit={e => handleSubmitEdit(e)}>
           <div className="edit-settings">
-            <div>
-              <label>Title:
+            <div className="label-wrapper">
+                <label>Title: </label>
                 <input type="text" name="" id="" value={selectedToEdit} onChange={e => setSelectedToEdit(e.target.value)} data-edit-input="form-edit" />
-              </label>
             </div>
-            <div>
-              <label className="label-prio">Priorities:
+            <div className="label-wrapper">
+            <label className="label-prio">Priorities: </label>
               <select name="priorities" id="prio" value={prio} onChange={e => setPrio(e.target.value)}>
                 <option value="Low">Low</option>
                 <option value="Medium">Medium</option>
                 <option value="High">High</option>
               </select>
-              </label>
             </div>
           </div>
           <button type="submit" data-edit-btn="form-edit">Save</button>

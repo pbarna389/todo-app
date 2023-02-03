@@ -3,7 +3,7 @@
 .infoCard  {
     position: fixed;
 
-    top: 24rem;
+    top: 14rem;
 
     padding: 1rem;
     margin-left: 2rem;
@@ -22,6 +22,14 @@
     transition: all 0.2s linear;
 
     animation: shadowFade 1s ease-in-out infinite;
+    z-index: 9999999999;
+
+    @include shared.phones {
+        top: 1rem;
+        width: 10rem;
+        font-size: 1rem;
+        margin-left:0;
+    }
 
     .load-bar {
         position: absolute;
@@ -31,9 +39,7 @@
         background: shared.$loadbar-color;
         width: 100%;
         animation: timerAnim 1.2s linear 1;
-
     }
-
 }
 
 @keyframes shadowFade {

@@ -9,6 +9,7 @@
     transition: all 0.05s linear;
     z-index: 2;
     border-radius: 0px;
+    background-color: transparent;
 
     @include shared.phones {
         width: 95%;

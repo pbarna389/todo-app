@@ -27,26 +27,20 @@
 
     form {
         display: flex;
+        flex-direction: column;
         align-items: center;
         transition: all 0.25s linear;
         border: shared.$border;
         background-color: shared.$form-bg-color;
-        width: 44.6rem;
         border-radius: 5px;
         padding: 0.5rem;
         box-shadow: 5px 5px 5px 1px rgba(63, 63, 63, 0.4);
         overflow: hidden;
 
         &.addNewElement {
-            gap: 1rem;
+            flex-direction: column;
 
             @include shared.phones {
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                width: 100%;
-                padding: 0.5rem 0;
-                box-shadow: none;
             }
         } 
 
@@ -81,6 +75,7 @@
             transition: all 0.3s linear;
             font-weight: 500;
             border-radius: inherit;
+            margin-top: 1rem;
 
                 &:hover {
                     color: shared.$bg-Body-Color;
@@ -91,38 +86,44 @@
         &.edit-mode {
             flex-direction: row;
 
-            input[type="text"] {
-                width: 80%;
-                border-radius: 5px;
-                margin-left: 0.5rem;
-                font-size: 1.1rem;
+            @include shared.phones {
+                flex-direction: column;
+                width: 100%
             }
 
-            .label-prio {
-                position: relative;
+            input[type="text"] {
+                border-radius: 5px;
+                margin: 0 0.5rem;
+                font-size: 1.1rem;
 
-                &::after {
-                    content: "<>";
-                    rotate: 90deg;
-                    position: absolute;
-                    transform: translate(-50%, -50%);
-                    top: 41%;
-                    right: 3%;
-                    z-index: 0;
+                @include shared.phones {
+                    width: inherit;
                 }
             }
 
             select {
                 position: relative;
-                width: 78%;
+                width: 85%;
                 border-radius: 5px;
                 background-color: shared.$border-color;
+                border: 4px solid transparent;
                 color: shared.$font-Color;
                 height: 2.5rem;
                 font-size: 1.1rem;
                 appearance: none;
                 outline: none;
-                margin-left: 0.5rem;
+                margin: 0 0.5rem;
+                transition: all 0.3s ease-in;
+                cursor: pointer;
+
+                @include shared.phones {
+                    width: inherit;
+                }
+
+                &:hover {
+                    color: white;
+                    border-top: 4px solid shared.$element-bg-color;
+                }
             }
 
             .edit-settings {
@@ -130,12 +131,32 @@
                 flex-direction: column;
                 width: 44.6rem;
                 gap: 1.2rem;
+
+                @include shared.phones {
+                    width: 100%
+                }
+
+                .label-wrapper {
+                    display: flex;
+                    flex-direction: column;
+
+                    @include shared.phones {
+                        display: flex;
+                    }
+                }
             }
+
     
             button {
                 width: 30%;
                 height: 5rem;
                 font-weight: 500;
+
+                @include shared.phones {
+                    height: 5rem;
+                    width: 5rem;
+                    margin-top: 1rem;
+                }
             }
     
         }

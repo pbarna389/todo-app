@@ -18,7 +18,8 @@ const ListItem:React.FC<listItemProps> = ({ element, handleLiDrag, handleDrop, h
     overMouseElement, setOverMouseElement, 
     overMouseParent, setOverMouseParent, 
     overMouseIdx, setOverMouseIdx, 
-    order } = useContext(TodoContext) as ITodoContext;
+    order 
+  } = useContext(TodoContext) as ITodoContext;
 
   const {
     setRemoveForm,
@@ -191,7 +192,7 @@ const ListItem:React.FC<listItemProps> = ({ element, handleLiDrag, handleDrop, h
       data-div-type="listItem-wrapper"
       >
       <div draggable={true}
-      style={listItemStyle}
+        style={listItemStyle}
         className={`listItem${index === 0 ? " first-item" : ""} ${element.finished ? "" : element.priority === "High" ? "high" : element.priority === "Medium" ? "medium" : "low"}`}
         onDragStart={e => handleLiDragStart(e)}
         onDragOver={(e) => handleLiDrag(e)}
