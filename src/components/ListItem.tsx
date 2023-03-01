@@ -12,7 +12,7 @@ import minus from "../assets/imgs/minus.svg"
 
 import "../styles/ListItem.css";
 
-const ListItem:React.FC<listItemProps> = ({ element, handleLiDrag, handleDrop, handleFinish, handleLiDragStart, index }) => {  
+const ListItem:React.FC<listItemProps> = ({ element, handleLiDrag, handleDrop, handleLiDragStart, index }) => {  
 
   const { 
     todos, setTodos, 

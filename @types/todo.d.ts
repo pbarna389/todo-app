@@ -72,7 +72,6 @@ export interface listItemProps {
     index: number,
     handleLiDrag(e: any): any,
     handleDrop(e: any): any,
-    handleFinish(e: any, finished: Todo): any,
     handleLiDragStart(e: any): any,
 }
 
