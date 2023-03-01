@@ -122,21 +122,21 @@ const ListItem:React.FC<listItemProps> = ({ element, handleLiDrag, handleDrop, h
   };
 
   const toggleElement = (e:any) => {
-    // console.log(overMouseElement);
+    console.log(overMouseElement);
     const movingElement:Todo[] = overMouseParent === "done" ? done.filter((el: Todo) => el.title === overMouseElement) : todos.filter((el: Todo) => el.title === overMouseElement);
     if (overMouseParent === "done") {
       setTodos((prev) => [...prev, { id: todos.length + 1, priority: movingElement[0].priority, title: movingElement[0].title, finished: false}]);
 
       const newDone:Todo[] = [...done].filter((el:Todo) => el.title !== movingElement[0].title);
 
-      handleInfoCard(`Re-added to the todo list: ${movingElement[0].title}`)
+      handleInfoCard(`Re-added to the todo list: ${overMouseElement}`)
       setDone(newDone);
     } else {
-      setDone((prev) => [...prev, { id: todos.length + 1, priority: movingElement[0].priority, title: movingElement[0].title, finished: true}]);
+      setDone((prev) => [...prev, { id: done.length + 1, priority: movingElement[0].priority, title: movingElement[0].title, finished: true}]);
 
-      const newTodos:Todo[] = [...todos].filter((el:Todo) => el.title !== movingElement[0].title);
+      const newTodos:Todo[] = [...todos].filter((el:Todo) => el.title !== overMouseElement);
 
-      handleInfoCard(`Finished item: ${movingElement[0].title}`)
+      handleInfoCard(`Finished item: ${overMouseElement}`)
       setTodos(newTodos);
     }
   };
@@ -208,8 +208,8 @@ const ListItem:React.FC<listItemProps> = ({ element, handleLiDrag, handleDrop, h
 
   return (
     <div className="listItem-wrapper"
-      onMouseOver={(e) => wrapperMouseOver(e)}
-      onMouseLeave={(e) => wrapperMouseLeave}
+      onPointerOver={(e) => wrapperMouseOver(e)}
+      onPointerLeave={(e) => wrapperMouseLeave}
       onDragOver={(e) => wrapperDragOver(e)}
       data-wrapper={element.title}
       data-div-type="listItem-wrapper"
@@ -223,14 +223,14 @@ const ListItem:React.FC<listItemProps> = ({ element, handleLiDrag, handleDrop, h
         data-title={element.title}
       >
         {element.title}
-      <div className="options-wrapper" data-options={element.title} data-div-type="options-wrapper" onMouseOver={e => selectConnectedElement(e)}>
+      <div className="options-wrapper" data-options={element.title} data-div-type="options-wrapper" onPointerOver={e => selectConnectedElement(e)}>
         {
           element.finished ? 
             <img draggable="false" src={plus} className="column-change" onClick={e => toggleElement(e)} data-change={element.title} data-type="column-change" />
             : <img draggable="false" src={minus} className="column-change" onClick={e => toggleElement(e)} data-change={element.title} data-type="column-change" />
         }
-        <img draggable="false" src={edit} className="edit" data-edit={element.title} data-type="edit" onClick={e => editModeToggle(e)} />
-        <img draggable="false" src={remove} className="delete" data-delete={element.title} data-type="delete" onClick={e => deleteElement(e)} /> 
+        <img draggable="false" src={edit} className="edit" data-edit={element.title} data-type="edit" onPointerDown={e => editModeToggle(e)} />
+        <img draggable="false" src={remove} className="delete" data-delete={element.title} data-type="delete" onPointerDown={e => deleteElement(e)} /> 
       </div>  
       </div>
     </div>
