@@ -180,22 +180,25 @@ const ListItem:React.FC<listItemProps> = ({ element, handleLiDrag, handleDrop, h
       const selectedValue = selectCorrEl.getAttribute('data-title');
       console.log(dataAttr, selectCorrEl, selectedValue, overMouseParent);
   
-      const newArr = overMouseParent === "todos" ? [...todos] : [...done];
-      console.log(newArr);
+      const newArr = todos.some((el: Todo) => el.title === dataAttr) ? [...todos] : [...done];
+      const parent = todos.some((el: Todo) =>el.title === dataAttr) ? "todos" : "done";
+      console.log(newArr, parent);
       const findElement = {...newArr.filter((el) => el.title === selectedValue)}[0];
       console.log(findElement)
       const targetIndex = newArr.indexOf(findElement);
       console.log(targetIndex)
       
       const splicedArr = newArr.splice(targetIndex);
+      console.log(splicedArr)
       splicedArr.shift();
       const result = newArr.concat(splicedArr);
-      overMouseParent === "todos" ? setTodos(result) : setDone(result);
+      console.log(result)
+      parent === "todos" ? setTodos(result) : setDone(result);
       
-      if (overMouseParent) {
+      if (parent) {
         setInfoID(element.id);
         setOptionElementSelected(dataType);
-        handleInfoCard(`${element.title} removed from ${overMouseParent?.charAt(0).toUpperCase() + overMouseParent?.slice(1)}`)
+        handleInfoCard(`${element.title} removed from ${parent?.charAt(0).toUpperCase() + parent?.slice(1)}`)
       }
       
     } else {
