@@ -441,6 +441,7 @@ const App = () => {
                 </div>
               </section>
           </FormProvider>
+          <p>Desktops: drag & drop the list items on each other to change their order, or drop it on the other column to change it's state to finished or vice versa. <br/>Mobile: can't change the order (yet), but with the plus and minus buttons you can change the item's state to finished or vice versa.</p>
         </main>
       </div>
   );
