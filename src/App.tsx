@@ -408,7 +408,6 @@ const App = () => {
                           handleLiDragStart={handleLiDragStart}
                           handleLiDrag={handleLiDrag}
                           handleDrop={handleDrop}
-                          handleFinish={handleFinish}
                           key={el.title}
                           element={el}
                           index={idx}
@@ -433,7 +432,6 @@ const App = () => {
                           handleLiDragStart={handleLiDragStart}
                           handleLiDrag={handleLiDrag}
                           handleDrop={handleDrop}
-                          handleFinish={handleFinish}
                           key={el.title}
                           element={el}
                           index={idx}
