@@ -9,12 +9,10 @@
   color: #c8cae3;
   border: 1px solid transparent;
   width: 10rem;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   transition: all 0.2s linear;
-  -webkit-animation: shadowFade 1s ease-in-out infinite;
-          animation: shadowFade 1s ease-in-out infinite;
+  animation: shadowFade 1s ease-in-out infinite;
   z-index: 9999999999;
 }
 @media (min-width: 320px) and (max-width: 640px) {
@@ -32,26 +30,7 @@
   height: 3px;
   background: #a02424;
   width: 100%;
-  -webkit-animation: timerAnim 1.2s linear 1;
-          animation: timerAnim 1.2s linear 1;
-}
-
-@-webkit-keyframes shadowFade {
-  0% {
-    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5);
-    font-shadow: 1px 1px 1px 1px rgba(26, 26, 26, 0.1);
-    border: 1px solid rgba(26, 26, 26, 0.1);
-  }
-  50% {
-    box-shadow: 2.5px 2.5px 2.5px 2.5px rgba(0, 0, 0, 0.5);
-    font-shadow: 2px 2px 2px 2px rgb(26, 26, 26);
-    border: 1px solid rgb(26, 26, 26);
-  }
-  100% {
-    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5);
-    font-shadow: 1px 1px 1px 1px rgba(26, 26, 26, 0.1);
-    border: 1px solid rgba(26, 26, 26, 0.1);
-  }
+  animation: timerAnim 1.2s linear 1;
 }
 
 @keyframes shadowFade {
@@ -69,20 +48,6 @@
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5);
     font-shadow: 1px 1px 1px 1px rgba(26, 26, 26, 0.1);
     border: 1px solid rgba(26, 26, 26, 0.1);
-  }
-}
-@-webkit-keyframes timerAnim {
-  0% {
-    width: 100%;
-  }
-  50% {
-    width: 50%;
-  }
-  80% {
-    width: 0%;
-  }
-  100% {
-    width: 0%;
   }
 }
 @keyframes timerAnim {

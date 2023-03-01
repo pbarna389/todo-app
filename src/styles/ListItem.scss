@@ -42,8 +42,8 @@
     border-bottom: shared.$border;
     border-radius: 0px;
     font-size: 1.1rem;
-    border-left: 3px solid transparent;
-    border-right: 3px solid transparent;
+    // border-left: 3px solid transparent;
+    // border-right: 3px solid transparent;
 
     @include shared.phones {
         width: 100%;
@@ -52,22 +52,22 @@
     &.high {
         background: rgb(90, 24, 24);
         background: linear-gradient(90deg, rgb(90, 24, 24) 0%, rgba(37,39,60,1) 40%);
-        border-left: 3px solid rgb(90, 24, 24);
-        border-right: 3px solid shared.$element-bg-color;
+        // border-left: 3px solid rgb(90, 24, 24);
+        // border-right: 3px solid shared.$element-bg-color;
     }
 
     &.medium {
         background: rgb(88, 90, 24);
         background: linear-gradient(90deg, rgb(88, 90, 24) 0%, rgba(37,39,60,1) 40%);
-        border-left: 3px solid rgb(88, 90, 24);
-        border-right: 3px solid shared.$element-bg-color;
+        // border-left: 3px solid rgb(88, 90, 24);
+        // border-right: 3px solid shared.$element-bg-color;
     }
 
     &.low {
         background: rgb(6, 63, 15);
         background: linear-gradient(90deg, rgb(6, 63, 15) 0%, rgba(37,39,60,1) 40%);
-        border-left: 3px solid rgb(6, 63, 15);
-        border-right: 3px solid shared.$element-bg-color;
+        // border-left: 3px solid rgb(6, 63, 15);
+        // border-right: 3px solid shared.$element-bg-color;
     }
 
     &.first-item {
@@ -81,8 +81,8 @@
 
     &:hover {
         color: shared.$font-hover-color;
-        border-left: 3px solid #7e81b1;
-        border-right: 3px solid #7e81b1;
+        // border-left: 3px solid #7e81b1;
+        // border-right: 3px solid #7e81b1;
     };
 
     .options-wrapper {

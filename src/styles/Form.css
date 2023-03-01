@@ -61,10 +61,6 @@
   color: #c8cae3;
   opacity: 0.5;
 }
-.section-form form input[type=text]:-ms-input-placeholder {
-  color: #c8cae3;
-  opacity: 0.5;
-}
 .section-form form input[type=text]::placeholder {
   color: #c8cae3;
   opacity: 0.5;
