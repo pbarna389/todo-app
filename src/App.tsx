@@ -231,7 +231,7 @@ const App = () => {
     }
   };
 
-  //THE LOGIC OF MOVING ELEMENTS BETWEEN STATES W CLICKING OR JUST DROPPING ON THE OTHER LIST
+  //THE LOGIC OF DROPPING ON THE OTHER LIST
 
   const handleAddDone = (event: React.MouseEvent<HTMLDivElement>, movingElement:any = "Medium"): void => {
     // console.log("Adding TO finished");

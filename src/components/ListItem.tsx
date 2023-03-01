@@ -7,6 +7,8 @@ import { Todo, listItemProps, ITodoContext, IFormContext, ITimerContext } from "
 
 import edit from "../assets/imgs/edit.svg"
 import remove from "../assets/imgs/trashcan.svg"
+import plus from "../assets/imgs/plus.svg"
+import minus from "../assets/imgs/minus.svg"
 
 import "../styles/ListItem.css";
 
@@ -48,7 +50,7 @@ const ListItem:React.FC<listItemProps> = ({ element, handleLiDrag, handleDrop, h
       
       const target = e.target;
       console.log(target.classList.value.includes("options-wrapper"));
-      const dataAttr = target.classList.value.includes("options-wrapper") ? target.getAttribute("data-options") : target.classList.value.includes("edit") ? target.getAttribute("data-edit") : target.classList.value.includes("prio-span") ? target.getAttribute("data-span") : target.getAttribute("data-delete");
+      const dataAttr = target.classList.value.includes("options-wrapper") ? target.getAttribute("data-options") : target.classList.value.includes("edit") ? target.getAttribute("data-edit") : target.classList.value.includes("column-change") ? target.getAttribute("data-change") : target.getAttribute("data-delete");
 
       console.log(dataAttr, e.target.classList.value)
 
@@ -75,7 +77,7 @@ const ListItem:React.FC<listItemProps> = ({ element, handleLiDrag, handleDrop, h
   
   const wrapperDragOver = (e:any):void => {
     const target = e.target;
-    const dataAttr = target.classList.value.includes("listItem-wrapper") ? target.getAttribute("data-wrapper") : target.classList.value.includes("listItem") ? target.getAttribute("data-title") : target.classList.value.includes("options-wrapper") ? target.getAttribute('data-options') : target.classList.value.includes("edit") ? target.getAttribute("data-edit") : target.getAttribute('data-delete');
+    const dataAttr = target.classList.value.includes("listItem-wrapper") ? target.getAttribute("data-wrapper") : target.classList.value.includes("listItem") ? target.getAttribute("data-title") : target.classList.value.includes("options-wrapper") ? target.getAttribute('data-options') : target.classList.value.includes("edit") ? target.getAttribute("data-edit") : target.classList.value.includes("column-change") ? target.getAttribute('data-change'): target.getAttribute('data-delete');
     // console.log(target)
     const newOverElement = document.querySelector(`[data-title="${dataAttr}"]`)!;
     const newOvElData = newOverElement.getAttribute("data-title");
@@ -119,6 +121,55 @@ const ListItem:React.FC<listItemProps> = ({ element, handleLiDrag, handleDrop, h
     setOverMouseElement(null);
   };
 
+  const toggleElement = (e:any) => {
+    // console.log(overMouseElement);
+    const movingElement:Todo[] = overMouseParent === "done" ? done.filter((el: Todo) => el.title === overMouseElement) : todos.filter((el: Todo) => el.title === overMouseElement);
+    if (overMouseParent === "done") {
+      setTodos((prev) => [...prev, { id: todos.length + 1, priority: movingElement[0].priority, title: movingElement[0].title, finished: false}]);
+
+      const newDone:Todo[] = [...done].filter((el:Todo) => el.title !== movingElement[0].title);
+
+      handleInfoCard(`Re-added to the todo list: ${movingElement[0].title}`)
+      setDone(newDone);
+    } else {
+      setDone((prev) => [...prev, { id: todos.length + 1, priority: movingElement[0].priority, title: movingElement[0].title, finished: true}]);
+
+      const newTodos:Todo[] = [...todos].filter((el:Todo) => el.title !== movingElement[0].title);
+
+      handleInfoCard(`Finished item: ${movingElement[0].title}`)
+      setTodos(newTodos);
+    }
+  };
+
+  const editModeToggle = (e: any):void => {
+    const target = e.target;
+    const dataAttr = target.getAttribute("data-type");
+
+    let elementToChange: Todo = {id:0, title:"", priority:"", finished:false};
+    overMouseParent === "todos" ? todos.forEach(el => el.title === overMouseElement ? elementToChange = el : el = el) : done.forEach(el => el.title === overMouseElement ? elementToChange = el : el = el);
+    console.log(elementToChange);
+    if (!editMode) {
+      console.log("clicked");
+      setRemoveForm(true);
+      setSelectToEdit(elementToChange);
+      
+      setOptionElementSelected(dataAttr);
+      setInfoID(elementToChange.id);
+      
+      changeForm(editMode, setEditMode, formTimeoutId, setFormTimeoutId, 250);
+
+      handleInfoCard(`Element edited: ${elementToChange.title}`);
+    } else {
+      setSelectToEdit(elementToChange)
+
+      setOptionElementSelected(dataAttr);
+      setInfoID(elementToChange.id);
+      handleClickAgain();
+
+      handleInfoCard(`Edited element changed to ${elementToChange.title}`)
+    }
+  };
+  
   const deleteElement = (e:any):void => {
     const target = e.target;
     const dataType = target.getAttribute("data-type");
@@ -153,35 +204,7 @@ const ListItem:React.FC<listItemProps> = ({ element, handleLiDrag, handleDrop, h
       handleInfoCard("You can't delete items while editing!");
     }
   };
-
-  const editModeToggle = (e: any):void => {
-    const target = e.target;
-    const dataAttr = target.getAttribute("data-type");
-
-    let elementToChange: Todo = {id:0, title:"", priority:"", finished:false};
-    overMouseParent === "todos" ? todos.forEach(el => el.title === overMouseElement ? elementToChange = el : el = el) : done.forEach(el => el.title === overMouseElement ? elementToChange = el : el = el);
-    console.log(elementToChange);
-    if (!editMode) {
-      console.log("clicked");
-      setRemoveForm(true);
-      setSelectToEdit(elementToChange);
-      
-      setOptionElementSelected(dataAttr);
-      setInfoID(elementToChange.id);
-      
-      changeForm(editMode, setEditMode, formTimeoutId, setFormTimeoutId, 250);
-
-      handleInfoCard(`Element edited: ${elementToChange.title}`);
-    } else {
-      setSelectToEdit(elementToChange)
-
-      setOptionElementSelected(dataAttr);
-      setInfoID(elementToChange.id);
-      handleClickAgain();
-
-      handleInfoCard(`Edited element changed to ${elementToChange.title}`)
-    }
-  };
+  
 
   return (
     <div className="listItem-wrapper"
@@ -197,13 +220,17 @@ const ListItem:React.FC<listItemProps> = ({ element, handleLiDrag, handleDrop, h
         onDragStart={e => handleLiDragStart(e)}
         onDragOver={(e) => handleLiDrag(e)}
         onDragEnd={(e) => handleDrop(e)}
-        // onClick={(e) => handleFinish(e, element)}
         data-title={element.title}
       >
         {element.title}
       <div className="options-wrapper" data-options={element.title} data-div-type="options-wrapper" onMouseOver={e => selectConnectedElement(e)}>
+        {
+          element.finished ? 
+            <img draggable="false" src={plus} className="column-change" onClick={e => toggleElement(e)} data-change={element.title} data-type="column-change" />
+            : <img draggable="false" src={minus} className="column-change" onClick={e => toggleElement(e)} data-change={element.title} data-type="column-change" />
+        }
         <img draggable="false" src={edit} className="edit" data-edit={element.title} data-type="edit" onClick={e => editModeToggle(e)} />
-        <img draggable="false" src={remove} className="delete" data-delete={element.title} data-type="delete" onClick={e => deleteElement(e)} />
+        <img draggable="false" src={remove} className="delete" data-delete={element.title} data-type="delete" onClick={e => deleteElement(e)} /> 
       </div>  
       </div>
     </div>

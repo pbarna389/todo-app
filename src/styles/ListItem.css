@@ -71,7 +71,7 @@
 .listItem .options-wrapper {
   display: flex;
 }
-.listItem .options-wrapper .edit, .listItem .options-wrapper .delete {
+.listItem .options-wrapper .edit, .listItem .options-wrapper .delete, .listItem .options-wrapper .column-change {
   position: relative;
   width: 2rem;
   height: 2rem;
@@ -81,11 +81,11 @@
           user-select: none;
   padding-left: 1rem;
 }
-.listItem .options-wrapper .edit:hover, .listItem .options-wrapper .delete:hover {
+.listItem .options-wrapper .edit:hover, .listItem .options-wrapper .delete:hover, .listItem .options-wrapper .column-change:hover {
   transform: scale(1.2);
   cursor: pointer;
 }
-.listItem .options-wrapper .edit:hover::after, .listItem .options-wrapper .delete:hover::after {
+.listItem .options-wrapper .edit:hover::after, .listItem .options-wrapper .delete:hover::after, .listItem .options-wrapper .column-change:hover::after {
   display: block;
   opacity: 1;
   height: -moz-fit-content;
