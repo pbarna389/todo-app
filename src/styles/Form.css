@@ -1,7 +1,7 @@
 .section-form {
   z-index: 2;
 }
-@media (min-width: 320px) and (max-width: 640px) {
+@media (min-width: 320px) and (max-width: 700px) {
   .section-form {
     display: flex;
     flex-direction: column;
@@ -18,7 +18,7 @@
   line-height: 1.1;
   text-transform: uppercase;
 }
-@media (min-width: 320px) and (max-width: 640px) {
+@media (min-width: 320px) and (max-width: 700px) {
   .section-form h1 {
     font-size: 2.5rem;
     text-align: center;
@@ -51,7 +51,7 @@
   outline: none;
   border-radius: inherit;
 }
-@media (min-width: 320px) and (max-width: 640px) {
+@media (min-width: 320px) and (max-width: 700px) {
   .section-form form input[type=text] {
     width: 85%;
     text-align: center;
@@ -82,7 +82,7 @@
 .section-form form.edit-mode {
   flex-direction: row;
 }
-@media (min-width: 320px) and (max-width: 640px) {
+@media (min-width: 320px) and (max-width: 700px) {
   .section-form form.edit-mode {
     flex-direction: column;
     width: 100%;
@@ -93,7 +93,7 @@
   margin: 0 0.5rem;
   font-size: 1.1rem;
 }
-@media (min-width: 320px) and (max-width: 640px) {
+@media (min-width: 320px) and (max-width: 700px) {
   .section-form form.edit-mode input[type=text] {
     width: inherit;
   }
@@ -115,7 +115,7 @@
   transition: all 0.3s ease-in;
   cursor: pointer;
 }
-@media (min-width: 320px) and (max-width: 640px) {
+@media (min-width: 320px) and (max-width: 700px) {
   .section-form form.edit-mode select {
     width: inherit;
   }
@@ -130,7 +130,7 @@
   width: 44.6rem;
   gap: 1.2rem;
 }
-@media (min-width: 320px) and (max-width: 640px) {
+@media (min-width: 320px) and (max-width: 700px) {
   .section-form form.edit-mode .edit-settings {
     width: 100%;
   }
@@ -139,7 +139,7 @@
   display: flex;
   flex-direction: column;
 }
-@media (min-width: 320px) and (max-width: 640px) {
+@media (min-width: 320px) and (max-width: 700px) {
   .section-form form.edit-mode .edit-settings .label-wrapper {
     display: flex;
   }
@@ -149,7 +149,7 @@
   height: 5rem;
   font-weight: 500;
 }
-@media (min-width: 320px) and (max-width: 640px) {
+@media (min-width: 320px) and (max-width: 700px) {
   .section-form form.edit-mode button {
     height: 5rem;
     width: 5rem;

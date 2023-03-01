@@ -9,7 +9,7 @@
   border-radius: 0px;
   background-color: transparent;
 }
-@media (min-width: 320px) and (max-width: 640px) {
+@media (min-width: 320px) and (max-width: 730px) {
   .listItem-wrapper {
     width: 95%;
   }
@@ -39,11 +39,6 @@
   border-bottom: 1px solid #42445e;
   border-radius: 0px;
   font-size: 1.1rem;
-}
-@media (min-width: 320px) and (max-width: 640px) {
-  .listItem {
-    width: 100%;
-  }
 }
 .listItem.high {
   background: rgb(90, 24, 24);
